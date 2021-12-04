@@ -2,7 +2,7 @@ console.log('%c HI', 'color: firebrick')
 document.addEventListener('DOMContentLoaded', () => {
   firstChallenge()
 
-function firstChallenge() {
+  function firstChallenge() {
     fetch("https://dog.ceo/api/breeds/image/random/4")
       .then(resp => resp.json())
       .then(json => addingImages(json))
@@ -25,7 +25,7 @@ function firstChallenge() {
 
   const breedUrl = 'https://dog.ceo/api/breeds/list/all'
 
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     secondChallenge()})
 
   function secondChallenge() {
@@ -47,26 +47,29 @@ function firstChallenge() {
             li.innerText = `${breed}`
             //console.log(li.innerText)
             ul.appendChild(li).classList.add('puppy')
+            li.addEventListener('click', (el) => {
+              el.target.style.color ='red'
+              }); 
+             
             //console.log(breed)
+            console.log(li)
           })
-         
+          const sel = document.querySelector('#breed-dropdown')
+          const li = document.getElementsByClassName('puppy')
+          console.log(li)
+            console.log(sel)
+            sel.addEventListener('input', function(e) {
+              console.log(e.target.value)
+             // if first letter of innerText in li equals
+             //to first letter in input, then create new array and push?
+            
+           
+           
+             
+           })
+           
+          
+            
+            
           }
-  }
-  
- 
-
- 
-//let li = document.getElementsByClassName('puppy')
-
-//console.log(li)
-
-document.addEventListener("DOMContentLoaded", function(){
-  let li= document.getElementsByClassName('puppy');  
-  console.log(li)
-  for(let i=0;i<li.length;i++){ 
-    li[i].addEventListener('click', () => {
-      console.log('I was clicked')
-      }); 
-    }
-})
-
+        }
