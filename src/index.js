@@ -37,39 +37,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
       function allDogs(data) {
           const ul = document.querySelector('ul')
-          
+          const breeds = []
           //console.log(ul)
-          //console.log(li)
           //console.log(data.message)
           //console.log(Object.keys(data.message))
           Object.keys(data.message).forEach(breed => {
+            breeds.push(breed)})
+            //console.log(breeds)
+            breeds.forEach( breed => {
             const li = document.createElement('li')
             li.innerText = `${breed}`
             //console.log(li.innerText)
             ul.appendChild(li).classList.add('puppy')
             li.addEventListener('click', (el) => {
               el.target.style.color ='red'
-              }); 
+            }); 
              
-            //console.log(breed)
-            console.log(li)
           })
-          const sel = document.querySelector('#breed-dropdown')
-          const li = document.getElementsByClassName('puppy')
-          console.log(li)
-            console.log(sel)
-            sel.addEventListener('input', function(e) {
-              console.log(e.target.value)
-             // if first letter of innerText in li equals
-             //to first letter in input, then create new array and push?
-            
-           
-           
-             
-           })
-           
           
-            
-            
-          }
+          const sel = document.querySelector('#breed-dropdown')
+          //console.log(sel)
+          sel.addEventListener('input', function(e) {
+            //console.log(e.target.value)
+            letter = e.target.value
+            //console.log(letter)
+           const newArray = []
+              breeds.forEach(breed =>{
+              if(breed[0] == letter){
+                ul.innerHTML = ''
+                newArray.push(breed)
+              }
+            })
+            console.log(newArray)
+
+            newArray.forEach( breed => {
+              const newli = document.createElement('li')
+               newli.innerText = `${breed}`
+               ul.appendChild(newli)
+            })
+          })
         }
+             
+           
+      }
